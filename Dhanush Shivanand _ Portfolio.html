@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dhanush Shivanand | Personal Portfolio</title>
+<meta name="description" content="Dhanush Shivanand is an AI engineer building agentic workflows, RAG systems and cloud backends.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#f9fafb;
+  --text:#111827;
+  --muted:#4b5563;
+  --card:#f3f4f6;
+  --card-border:rgba(0,0,0,.05);
+  --pill:#ffffff;
+  --pill-text:#111827;
+  --tag:#111827;
+  --tag-text:#ffffff;
+  --nav-bg:rgba(255,255,255,.8);
+  --nav-border:rgba(0,0,0,.06);
+  --nav-text:#6b7280;
+  --nav-active:#111827;
+  --btn-dark:#111827;
+  --btn-dark-text:#ffffff;
+  --btn-light:#ffffff;
+  --btn-light-text:#111827;
+  --blob1:#fbe2e3;
+  --blob2:#dbd7fb;
+  --line:#e5e7eb;
+  --input-bg:rgba(255,255,255,.9);
+  --input-border:#e5e7eb;
+  --focus:#2563eb;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#111827;--text:#f9fafb;--muted:#9ca3af;--card:#1f2937;--card-border:rgba(255,255,255,.06);
+    --pill:rgba(255,255,255,.08);--pill-text:#f3f4f6;--tag:#374151;--tag-text:#f3f4f6;
+    --nav-bg:rgba(17,24,39,.8);--nav-border:rgba(255,255,255,.1);--nav-text:#9ca3af;--nav-active:#f9fafb;
+    --btn-dark:#f9fafb;--btn-dark-text:#111827;--btn-light:rgba(255,255,255,.1);--btn-light-text:#f9fafb;
+    --blob1:#946263;--blob2:#676394;--line:#374151;--input-bg:rgba(255,255,255,.08);--input-border:#374151;--focus:#60a5fa;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111827;--text:#f9fafb;--muted:#9ca3af;--card:#1f2937;--card-border:rgba(255,255,255,.06);
+  --pill:rgba(255,255,255,.08);--pill-text:#f3f4f6;--tag:#374151;--tag-text:#f3f4f6;
+  --nav-bg:rgba(17,24,39,.8);--nav-border:rgba(255,255,255,.1);--nav-text:#9ca3af;--nav-active:#f9fafb;
+  --btn-dark:#f9fafb;--btn-dark-text:#111827;--btn-light:rgba(255,255,255,.1);--btn-light-text:#f9fafb;
+  --blob1:#946263;--blob2:#676394;--line:#374151;--input-bg:rgba(255,255,255,.08);--input-border:#374151;--focus:#60a5fa;
+}
+*,*::before,*::after{box-sizing:inherit;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(6.5rem + env(safe-area-inset-top,0px))}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;position:relative;
+}
+.blob{position:absolute;z-index:-1;border-radius:50%;filter:blur(90px);pointer-events:none}
+.blob-1{top:-6rem;right:5rem;width:31rem;height:31rem;background:var(--blob1)}
+.blob-2{top:-1rem;left:-20rem;width:45rem;height:31rem;background:var(--blob2)}
+@media (min-width:1100px){.blob-2{left:-33rem}}
+a{color:inherit}
+.container{max-width:46rem;margin:0 auto;padding:0 1rem}
+
+/* nav */
+.nav-wrap{position:fixed;top:calc(.4rem + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);z-index:50;width:min(92vw,42rem)}
+@media (min-width:640px){.nav-wrap{top:calc(1.5rem + env(safe-area-inset-top,0px));width:auto}}
+.nav{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:.25rem .5rem;
+  background:var(--nav-bg);border:1px solid var(--nav-border);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border-radius:999px;padding:.5rem 1rem;box-shadow:0 10px 30px rgba(0,0,0,.08);font-size:.9rem;font-weight:500
+}
+.nav a{text-decoration:none;color:var(--nav-text);padding:.3rem .75rem;border-radius:999px;transition:color .2s,background .2s}
+.nav a:hover,.nav a.active{color:var(--nav-active)}
+.nav a.active{background:var(--card)}
+
+/* sections */
+section{scroll-margin-top:7rem}
+.section{padding:3rem 0}
+h2{font-size:1.875rem;font-weight:600;text-align:center;margin-bottom:2rem;letter-spacing:-.01em}
+
+/* hero */
+.hero{padding-top:9rem;text-align:center}
+.portrait-wrap{position:relative;display:inline-block}
+.portrait{
+  width:9rem;height:9rem;border-radius:50%;border:4px solid var(--bg);
+  box-shadow:0 10px 30px rgba(0,0,0,.18);object-fit:cover;background:#dbeafe;
+  display:flex;align-items:center;justify-content:center;font-size:2.75rem;font-weight:700;color:#1e3a8a;overflow:hidden
+}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block}
+.wave{position:absolute;bottom:-.1rem;right:-.3rem;font-size:2rem}
+.hero h1{margin:1.5rem auto 0;max-width:40rem;font-size:1.6rem;font-weight:400;line-height:1.5;letter-spacing:-.01em}
+@media (min-width:640px){.hero h1{font-size:2.25rem;line-height:1.4}}
+.hero h1 b{font-weight:700}
+.actions{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-top:2rem;font-size:1rem;font-weight:500}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.75rem;border-radius:999px;text-decoration:none;
+  border:1px solid var(--card-border);transition:transform .15s,background .15s;cursor:pointer;font:inherit
+}
+.btn:hover{transform:scale(1.05)}
+.btn:active{transform:scale(1)}
+.btn-dark{background:var(--btn-dark);color:var(--btn-dark-text)}
+.btn-light{background:var(--btn-light);color:var(--btn-light-text)}
+.btn-icon{padding:.85rem;width:3.1rem;height:3.1rem;justify-content:center;color:var(--muted)}
+.btn-icon:hover{color:var(--text)}
+.btn svg{width:1.1rem;height:1.1rem;fill:currentColor}
+
+/* about */
+.about p{margin-bottom:1rem;text-align:center}
+.about p b{font-weight:600}
+
+/* projects */
+.project{
+  display:grid;grid-template-columns:1fr;background:var(--card);border:1px solid var(--card-border);
+  border-radius:1rem;overflow:hidden;margin-bottom:1.5rem;text-decoration:none;color:inherit;
+  transition:background .2s
+}
+.project:hover{background:color-mix(in srgb,var(--card) 80%,var(--text) 6%)}
+.project-body{padding:1.5rem 1.5rem 1.75rem;display:flex;flex-direction:column}
+.project h3{font-size:1.35rem;font-weight:600}
+.project p{color:var(--muted);margin:.5rem 0 1rem;font-size:.95rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto}
+.tag{background:var(--tag);color:var(--tag-text);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;padding:.25rem .65rem;border-radius:999px}
+.project-art{
+  min-height:11rem;display:flex;align-items:flex-end;justify-content:center;padding:1.25rem;position:relative;overflow:hidden
+}
+.project-art svg{width:100%;max-width:22rem;height:auto}
+@media (min-width:768px){
+  .project{grid-template-columns:1fr 1fr;min-height:19rem}
+  .project:nth-child(even) .project-body{order:2}
+  .project-art{align-items:center}
+  .project-art svg{transform:translateY(1.5rem) rotate(2deg);transition:transform .25s}
+  .project:nth-child(even) .project-art svg{transform:translateY(1.5rem) rotate(-2deg)}
+  .project:hover .project-art svg{transform:translateY(.5rem) scale(1.03) rotate(0)}
+}
+.art-window{fill:var(--bg);stroke:var(--line)}
+.art-line{fill:var(--line)}
+.art-accent{fill:var(--muted)}
+
+/* skills */
+.skills{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;font-size:1.05rem}
+.skills li{list-style:none;background:var(--pill);color:var(--pill-text);border:1px solid var(--card-border);padding:.6rem 1.25rem;border-radius:999px}
+
+/* experience timeline */
+.timeline{position:relative;padding-left:2.5rem}
+.timeline::before{content:"";position:absolute;left:1rem;top:.5rem;bottom:.5rem;width:2px;background:var(--line)}
+.job{position:relative;margin-bottom:2rem}
+.job::before{
+  content:"";position:absolute;left:-2.5rem;top:.35rem;width:2rem;height:2rem;border-radius:50%;
+  background:var(--card);border:2px solid var(--line);transform:translateX(0)
+}
+.job-icon{position:absolute;left:-2.05rem;top:.75rem;width:1.1rem;height:1.1rem;fill:var(--muted)}
+.job-card{background:var(--card);border:1px solid var(--card-border);border-radius:.75rem;padding:1.25rem 1.5rem}
+.job-card h3{font-size:1.1rem;font-weight:600}
+.job-card .org{font-weight:500}
+.job-card .loc{font-size:.85rem;color:var(--muted);font-style:normal}
+.job-card ul{margin:.75rem 0 0 1.1rem;color:var(--muted);font-size:.93rem}
+.job-card li{margin-bottom:.35rem}
+.job-date{font-size:.85rem;color:var(--muted);margin-top:.4rem}
+
+/* contact */
+.contact p{text-align:center;color:var(--muted);margin-top:-1.25rem}
+.contact form{display:flex;flex-direction:column;gap:.75rem;margin-top:1.5rem}
+.contact input,.contact textarea{
+  font:inherit;padding:.9rem 1rem;border-radius:.6rem;border:1px solid var(--input-border);background:var(--input-bg);color:var(--text)
+}
+.contact textarea{min-height:11rem;resize:vertical}
+.contact button{align-self:flex-start;gap:.6rem}
+.contact .note{font-size:.8rem;margin-top:.25rem;text-align:left}
+
+/* footer */
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding:2.5rem 1rem 3rem}
+footer p+p{margin-top:.5rem}
+footer b{font-weight:600}
+
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<div class="nav-wrap">
+  <nav class="nav" aria-label="Sections">
+    <a href="#home" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</div>
+
+<main class="container">
+
+<section id="home" class="hero">
+  <div class="portrait-wrap">
+    <div class="portrait" aria-label="Dhanush Shivanand"><span>DS</span></div>
+    <span class="wave" aria-hidden="true">👋</span>
+  </div>
+  <h1><b>Hello, I'm Dhanush.</b> I'm an <b>AI Engineer</b> with <b>3+ years</b> of experience building backend and cloud systems. I enjoy building <b>agentic workflows and RAG pipelines</b>. My focus is <b>LLM infrastructure on AWS</b>.</h1>
+  <div class="actions">
+    <a class="btn btn-dark" href="#contact">Contact me
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5l7 7-7 7v-4H4v-6h9V5z"/></svg></a>
+    <a class="btn btn-light" href="#" id="resume-link">Resume
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16l-6-6h4V3h4v7h4l-6 6zm-8 2h16v3H4z"/></svg></a>
+    <a class="btn btn-light btn-icon" href="https://linkedin.com/in/dhanush-shivanand" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.5 4.73-2.5 5.06 0 6 3.33 6 7.66V24h-5v-7.6c0-1.8-.03-4.14-2.52-4.14-2.53 0-2.92 1.97-2.92 4v7.74h-5V8z"/></svg></a>
+    <a class="btn btn-light btn-icon" href="https://github.com/dhanushsanand" target="_blank" rel="noopener" aria-label="GitHub">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2.17c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></a>
+  </div>
+</section>
+
+<section id="about" class="section about">
+  <h2>About me</h2>
+  <p>I'm an AI engineer currently at <b>Mavenir</b> in Dallas, where I build <b>agentic workflows</b> that automate statement-of-work, bill-of-materials and customer-questionnaire review for the 5G-RAN operations team, cutting review time by <b>95%</b>. Underneath that sits a multi-stage RAG pipeline over 45,000+ internal documents, orchestrated with LangGraph and served through FastAPI, with evaluation pipelines in Ragas and DeepEval guiding every chunking, reranker and model decision.</p>
+  <p>Before that I spent three years at <b>Accenture</b> as a software engineer on the Calypso capital markets platform, scaling Spring Boot microservices to 10K+ requests a day, cutting release time from 60 to 10 minutes with CI/CD, and building a Solr-backed retrieval service over 10K+ PDFs. I also built a serverless public-comment analysis pipeline for the USDA at the ASU AI Cloud Innovation Centre.</p>
+  <p>I recently completed my <b>Master's in Computer Science at Arizona State University</b> with a 4.0 GPA, focusing on cloud computing, data processing at scale and statistical machine learning, and I hold the AWS Solutions Architect Associate certification. Outside of work I build things at hackathons, where I've won five times. I'm interested in roles where AI and cloud engineering meet real automation problems.</p>
+</section>
+
+<section id="projects" class="section">
+  <h2>My projects</h2>
+
+  <a class="project" href="https://github.com/dhanushsanand" target="_blank" rel="noopener">
+    <div class="project-body">
+      <h3>The DOC Parsers</h3>
+      <p>A healthcare policy RAG system with embedding-based retrieval and PDF page-level citations for payer comparison and version-diff analysis, plus an evaluation loop to curb hallucinations. Built at Innovation Hacks 2.0.</p>
+      <ul class="tags"><li class="tag">FastAPI</li><li class="tag">OpenAI</li><li class="tag">Neo4j</li><li class="tag">RAG</li><li class="tag">Evaluation</li></ul>
+    </div>
+    <div class="project-art" aria-hidden="true">
+      <svg viewBox="0 0 320 220"><rect class="art-window" x="1" y="1" width="318" height="218" rx="12"/><rect class="art-line" x="24" y="28" width="120" height="10" rx="5"/><rect class="art-line" x="24" y="52" width="270" height="8" rx="4"/><rect class="art-line" x="24" y="68" width="240" height="8" rx="4"/><rect class="art-line" x="24" y="84" width="255" height="8" rx="4"/><rect class="art-accent" x="24" y="112" width="130" height="80" rx="8" opacity=".35"/><rect class="art-accent" x="166" y="112" width="130" height="80" rx="8" opacity=".2"/><rect class="art-line" x="40" y="128" width="90" height="7" rx="3"/><rect class="art-line" x="182" y="128" width="90" height="7" rx="3"/></svg>
+    </div>
+  </a>
+
+  <a class="project" href="https://github.com/dhanushsanand" target="_blank" rel="noopener">
+    <div class="project-body">
+      <h3>Distributed Image Processing</h3>
+      <p>A Python and AWS backend with custom EC2 autoscaling and SQS/S3 orchestration, serving 100 concurrent users and 10K+ images at sub-3s latency. Worker capacity scales up to 20 instances based on queue depth.</p>
+      <ul class="tags"><li class="tag">Python</li><li class="tag">AWS EC2</li><li class="tag">SQS</li><li class="tag">S3</li><li class="tag">Autoscaling</li></ul>
+    </div>
+    <div class="project-art" aria-hidden="true">
+      <svg viewBox="0 0 320 220"><rect class="art-window" x="1" y="1" width="318" height="218" rx="12"/><g class="art-accent" opacity=".3"><rect x="30" y="40" width="60" height="40" rx="6"/><rect x="30" y="92" width="60" height="40" rx="6"/><rect x="30" y="144" width="60" height="40" rx="6"/></g><rect class="art-line" x="130" y="88" width="60" height="48" rx="8"/><g class="art-accent" opacity=".3"><rect x="230" y="40" width="60" height="40" rx="6"/><rect x="230" y="92" width="60" height="40" rx="6"/><rect x="230" y="144" width="60" height="40" rx="6"/></g><g class="art-line"><rect x="90" y="110" width="40" height="4"/><rect x="190" y="110" width="40" height="4"/></g></svg>
+    </div>
+  </a>
+
+  <a class="project" href="https://github.com/dhanushsanand" target="_blank" rel="noopener">
+    <div class="project-body">
+      <h3>Cloud Architecture Agent</h3>
+      <p>A staged agentic pipeline that ingests GitHub repos, extracts services from IaC, Kubernetes and Helm, and renders grounded architecture diagrams. Candidate-constrained, evidence-based extraction suppresses hallucinations and supports multi-service failure analysis.</p>
+      <ul class="tags"><li class="tag">LangGraph</li><li class="tag">Kubernetes</li><li class="tag">Helm</li><li class="tag">Terraform</li><li class="tag">Agents</li></ul>
+    </div>
+    <div class="project-art" aria-hidden="true">
+      <svg viewBox="0 0 320 220"><rect class="art-window" x="1" y="1" width="318" height="218" rx="12"/><circle class="art-accent" cx="160" cy="60" r="22" opacity=".35"/><circle class="art-accent" cx="80" cy="150" r="22" opacity=".25"/><circle class="art-accent" cx="160" cy="150" r="22" opacity=".25"/><circle class="art-accent" cx="240" cy="150" r="22" opacity=".25"/><g class="art-line"><rect x="118" y="100" width="4" height="30" transform="rotate(35 120 100)"/><rect x="158" y="82" width="4" height="46"/><rect x="198" y="100" width="4" height="30" transform="rotate(-35 200 100)"/></g></svg>
+    </div>
+  </a>
+
+  <a class="project" href="https://github.com/dhanushsanand" target="_blank" rel="noopener">
+    <div class="project-body">
+      <h3>Meta-MCP Architect</h3>
+      <p>A FastMCP and E2B-based MCP system that creates, tests and shares reusable agent tools across pipelines, so teams can reuse agentic workflows instead of rebuilding the same tools.</p>
+      <ul class="tags"><li class="tag">FastMCP</li><li class="tag">E2B</li><li class="tag">MCP</li><li class="tag">Python</li></ul>
+    </div>
+    <div class="project-art" aria-hidden="true">
+      <svg viewBox="0 0 320 220"><rect class="art-window" x="1" y="1" width="318" height="218" rx="12"/><rect class="art-accent" x="40" y="40" width="240" height="30" rx="8" opacity=".35"/><rect class="art-accent" x="40" y="84" width="112" height="100" rx="8" opacity=".2"/><rect class="art-accent" x="168" y="84" width="112" height="100" rx="8" opacity=".2"/><rect class="art-line" x="56" y="100" width="70" height="7" rx="3"/><rect class="art-line" x="56" y="118" width="80" height="7" rx="3"/><rect class="art-line" x="184" y="100" width="70" height="7" rx="3"/><rect class="art-line" x="184" y="118" width="80" height="7" rx="3"/></svg>
+    </div>
+  </a>
+
+  <a class="project" href="https://github.com/dhanushsanand" target="_blank" rel="noopener">
+    <div class="project-body">
+      <h3>Secure Task Dashboard</h3>
+      <p>A full-stack MERN app with JWT auth, protected routes and user-scoped REST CRUD APIs for cross-device task management, extended with RAG task retrieval, an AI chat for creating and deleting tasks, and daily task summaries.</p>
+      <ul class="tags"><li class="tag">React</li><li class="tag">Node.js</li><li class="tag">Express</li><li class="tag">MongoDB</li><li class="tag">JWT</li><li class="tag">RAG</li></ul>
+    </div>
+    <div class="project-art" aria-hidden="true">
+      <svg viewBox="0 0 320 220"><rect class="art-window" x="1" y="1" width="318" height="218" rx="12"/><rect class="art-accent" x="1" y="1" width="80" height="218" rx="12" opacity=".2"/><g class="art-line"><rect x="18" y="30" width="44" height="7" rx="3"/><rect x="18" y="50" width="44" height="7" rx="3"/><rect x="18" y="70" width="44" height="7" rx="3"/></g><g class="art-accent" opacity=".3"><rect x="100" y="30" width="200" height="34" rx="8"/><rect x="100" y="76" width="200" height="34" rx="8"/><rect x="100" y="122" width="200" height="34" rx="8"/><rect x="100" y="168" width="200" height="34" rx="8"/></g></svg>
+    </div>
+  </a>
+</section>
+
+<section id="skills" class="section">
+  <h2>My skills</h2>
+  <ul class="skills">
+    <li>Python</li><li>Java</li><li>TypeScript</li><li>JavaScript</li><li>C++</li><li>SQL</li><li>Bash</li>
+    <li>RAG</li><li>LangChain</li><li>LangGraph</li><li>OpenAI APIs</li><li>Qdrant</li><li>vLLM</li><li>Vector search</li><li>DeepEval</li><li>Ragas</li><li>LangSmith</li>
+    <li>FastAPI</li><li>Spring Boot</li><li>Node.js</li><li>REST APIs</li><li>GraphQL</li><li>Microservices</li><li>MCP servers</li><li>Kafka</li><li>Redis</li>
+    <li>PostgreSQL</li><li>MongoDB</li><li>SQLite</li><li>Apache Solr</li>
+    <li>AWS</li><li>GCP</li><li>Docker</li><li>Kubernetes</li><li>GitHub Actions</li><li>Jenkins</li><li>Linux</li><li>Git</li>
+  </ul>
+</section>
+
+<section id="experience" class="section">
+  <h2>My experience</h2>
+  <div class="timeline">
+
+    <div class="job">
+      <svg class="job-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2h4a2 2 0 0 1 2 2v2h4a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4V4a2 2 0 0 1 2-2zm0 4h4V4h-4v2z"/></svg>
+      <div class="job-card">
+        <h3>AI Engineer Intern</h3>
+        <div class="org">Mavenir</div>
+        <div class="loc">Dallas, TX</div>
+        <ul>
+          <li>Developed agentic workflows to automate SoW, BoM and CIQ review for the 5G-RAN operations team, cutting review time by 95%.</li>
+          <li>Built a multi-stage RAG pipeline over 45,000+ internal documents with semantic search, metadata filtering and LangGraph multi-agent orchestration behind FastAPI.</li>
+          <li>Designed offline and online evaluation pipelines with Ragas and DeepEval to measure retrieval quality and AI security.</li>
+        </ul>
+        <div class="job-date">August 2026 - Present</div>
+      </div>
+    </div>
+
+    <div class="job">
+      <svg class="job-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3L1 9l11 6 9-4.9V17h2V9L12 3zm0 14.3L5 13.5V17l7 4 7-4v-3.5l-7 3.8z"/></svg>
+      <div class="job-card">
+        <h3>Cloud Developer</h3>
+        <div class="org">ASU AI Cloud Innovation Centre</div>
+        <div class="loc">Tempe, AZ</div>
+        <ul>
+          <li>Built a serverless public-comment analysis pipeline for the USDA that processes 5,000 Google Forms responses in under 7 minutes with Step Functions, Lambda, API Gateway, WebSocket API and S3.</li>
+          <li>Generated SentenceTransformers embeddings on SageMaker and integrated Amazon Bedrock for sentiment analysis, cutting manual review time by 85%.</li>
+        </ul>
+        <div class="job-date">January 2026 - May 2026</div>
+      </div>
+    </div>
+
+    <div class="job">
+      <svg class="job-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2h4a2 2 0 0 1 2 2v2h4a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4V4a2 2 0 0 1 2-2zm0 4h4V4h-4v2z"/></svg>
+      <div class="job-card">
+        <h3>Software Engineer</h3>
+        <div class="org">Accenture</div>
+        <div class="loc">Bengaluru, India</div>
+        <ul>
+          <li>Worked on the Calypso capital markets platform for a financial client, supporting thousands of daily multi-currency transactions in a Spring Boot microservices environment.</li>
+          <li>Scaled 50 REST endpoints across 4 services to 10K+ requests/day with 90% coverage and zero-downtime releases.</li>
+          <li>Reduced release time from 60 to 10 minutes with 5 GitLab CI/CD pipelines, staging gates and rollback controls.</li>
+          <li>Built a Solr-backed retrieval service indexing 10K+ PDFs, improving document discovery to 95% relevance.</li>
+          <li>Led code reviews and knowledge-transfer sessions, accelerating review cycles by 60%.</li>
+        </ul>
+        <div class="job-date">August 2021 - July 2024</div>
+      </div>
+    </div>
+
+    <div class="job">
+      <svg class="job-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3L1 9l11 6 9-4.9V17h2V9L12 3zm0 14.3L5 13.5V17l7 4 7-4v-3.5l-7 3.8z"/></svg>
+      <div class="job-card">
+        <h3>M.S. Computer Science</h3>
+        <div class="org">Arizona State University</div>
+        <div class="loc">Tempe, AZ</div>
+        <ul>
+          <li>GPA 4.0 / 4.0. Coursework in Cloud Computing, Data Processing at Scale, Data Mining and Statistical ML.</li>
+        </ul>
+        <div class="job-date">August 2024 - May 2026</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact" class="section contact">
+  <h2>Contact me</h2>
+  <p>Please contact me directly at <a href="mailto:dhanushsanand@gmail.com">dhanushsanand@gmail.com</a> or through this form.</p>
+  <form id="contact-form">
+    <input type="email" name="email" placeholder="Your email" required maxlength="200">
+    <textarea name="message" placeholder="Your message" required maxlength="3000"></textarea>
+    <button class="btn btn-dark" type="submit">Send
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg></button>
+    <span class="note" id="form-note"></span>
+  </form>
+</section>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Dhanush Shivanand. All rights reserved.</p>
+  <p><b>About this website:</b> a single self-contained HTML page with hand-written CSS and vanilla JavaScript.</p>
+</footer>
+
+<script>
+(function(){
+  // Highlight the nav link for the section in view
+  var links=document.querySelectorAll('.nav a');
+  var sections=[].slice.call(document.querySelectorAll('main section'));
+  function update(){
+    var y=window.scrollY+window.innerHeight*0.35;
+    var current=sections[0].id;
+    sections.forEach(function(s){ if(s.offsetTop<=y) current=s.id; });
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+current); });
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  update();
+
+  // Contact form: opens the visitor's mail app with the message prefilled
+  var form=document.getElementById('contact-form');
+  var note=document.getElementById('form-note');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var email=form.email.value.trim(), msg=form.message.value.trim();
+    var body='From: '+email+'\n\n'+msg;
+    window.location.href='mailto:dhanushsanand@gmail.com?subject='+encodeURIComponent('Portfolio contact from '+email)+'&body='+encodeURIComponent(body);
+    note.textContent='Opening your email app with the message filled in.';
+  });
+
+  // Resume link: swap the href for a hosted PDF when you have one
+  var resume=document.getElementById('resume-link');
+  resume.addEventListener('click',function(e){
+    if(resume.getAttribute('href')==='#'){ e.preventDefault(); window.location.href='mailto:dhanushsanand@gmail.com?subject='+encodeURIComponent('Resume request'); }
+  });
+})();
+</script>
+</body>
+</html>
